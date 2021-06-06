@@ -1,5 +1,8 @@
 # vntemplate
 
+A PDF for this document:
+https://drive.google.com/file/d/1MufBYIpz8tOM2S_CBVuHUr3TzKmMuUo4/view?usp=sharing
+
 A Visual Novel Template for Godot Engine
 
 Credits to assets used in this demo:
