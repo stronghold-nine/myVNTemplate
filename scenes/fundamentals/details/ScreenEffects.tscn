@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/fundamentals/details/camera.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/fundamentals/details/colorRelated.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/fundamentals/details/screenEffectsMidpoint.gd" type="Script" id=3]
+
+[node name="screenEffects" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="colorRelated" parent="." instance=ExtResource( 2 )]
+layer = 2
+
+[node name="camera" parent="." instance=ExtResource( 1 )]

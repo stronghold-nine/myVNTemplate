@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/myuu-angels.mp3-7dc9b8b439c55e2704591e264968106a.mp3str"
+
+[deps]
+
+source_file="res://bgm/myuu-angels.mp3"
+dest_files=[ "res://.import/myuu-angels.mp3-7dc9b8b439c55e2704591e264968106a.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,90 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/fundamentals/details/colorRelated.gd" type="Script" id=1]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+uniform vec2 center;
+uniform float size;
+uniform float force;
+uniform float thickness;
+
+void fragment(){
+	float ratio = SCREEN_PIXEL_SIZE.x / SCREEN_PIXEL_SIZE.y;
+	vec2 scaledUV = (SCREEN_UV - vec2(0.5, 0.0)) / vec2(ratio, 1.0) + vec2(0.5, 0.0);
+	float mask = (1.0 - smoothstep(size-0.1, size, length(scaledUV - center))) * smoothstep(size-0.1-thickness, size-thickness, length(scaledUV - center));
+	vec2 disp = normalize(scaledUV - center) * force * mask;
+	COLOR = texture(SCREEN_TEXTURE, SCREEN_UV - disp);
+	// COLOR.rgb = vec3(mask);
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/center = Vector2( 0.5, 0.5 )
+shader_param/size = 0.1
+shader_param/force = 0.0
+shader_param/thickness = 0.1
+
+[sub_resource type="Animation" id=3]
+resource_name = "shockWave"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("shockWave:material:shader_param/size")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 2.54912 ),
+"update": 0,
+"values": [ 0.1, 1.3 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("shockWave:material:shader_param/force")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 2.07053 ),
+"update": 0,
+"values": [ 0.0, 0.5 ]
+}
+
+[node name="colorRelated" type="CanvasLayer"]
+script = ExtResource( 1 )
+
+[node name="shockWave" type="ColorRect" parent="."]
+visible = false
+material = SubResource( 2 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.54902, 0.211765, 0.211765, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="tintRect" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="transitionPlayer" type="AnimationPlayer" parent="."]
+anims/shockWave = SubResource( 3 )
+
+[node name="tintPlayer" type="AnimationPlayer" parent="."]
+
+[connection signal="animation_finished" from="transitionPlayer" to="." method="_on_transitionPlayer_animation_finished"]

@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://fonts/EBGaramond-Italic.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://fonts/EBGaramond-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://fonts/EBGaramond-Bold.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://scenes/fundamentals/details/nvlBox.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 26
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 26
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 26
+font_data = ExtResource( 2 )
+
+[node name="nvlBox" type="RichTextLabel"]
+visible = false
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -450.0
+margin_top = 25.0
+margin_right = 450.0
+margin_bottom = 625.0
+custom_fonts/italics_font = SubResource( 1 )
+custom_fonts/bold_font = SubResource( 2 )
+custom_fonts/normal_font = SubResource( 3 )
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+bbcode_enabled = true
+visible_characters = 0
+scroll_following = true
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="autoTimer" type="Timer" parent="."]
+wait_time = 0.05
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="autoTimer" to="." method="_on_autoTimer_timeout"]

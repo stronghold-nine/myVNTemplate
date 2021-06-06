@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scenes/fundamentals/musicController.gd" type="Script" id=1]
+
+[node name="music" type="Node"]
+script = ExtResource( 1 )
+
+[node name="bgm1" type="AudioStreamPlayer" parent="."]
+bus = "BGM"
+
+[node name="sound" type="AudioStreamPlayer" parent="."]
+bus = "Effects"
+
+[node name="voice" type="AudioStreamPlayer" parent="."]
+
+[node name="tween1" type="Tween" parent="."]
+
+[connection signal="tween_completed" from="tween1" to="." method="_on_tween1_tween_completed"]

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scenes/fundamentals/characterTemplate.gd" type="Script" id=1]
+
+[node name="characterSprite" type="Sprite"]
+modulate = Color( 0.862745, 0.862745, 0.862745, 1 )
+position = Vector2( -3.01695, -284.756 )
+centered = false
+script = ExtResource( 1 )

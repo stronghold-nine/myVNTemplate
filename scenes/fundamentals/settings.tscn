@@ -1,0 +1,262 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://scenes/fundamentals/details/settings.gd" type="Script" id=1]
+[ext_resource path="res://fonts/ArchitectsDaughter.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=10]
+size = 26
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFontData" id=2]
+font_path = "res://fonts/ArchitectsDaughter.ttf"
+
+[sub_resource type="DynamicFont" id=11]
+font_data = SubResource( 2 )
+
+[sub_resource type="Theme" id=12]
+default_font = SubResource( 11 )
+
+[sub_resource type="DynamicFont" id=13]
+size = 23
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=14]
+size = 22
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 22
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFontData" id=8]
+font_path = "res://fonts/ArchitectsDaughter.ttf"
+
+[sub_resource type="DynamicFont" id=9]
+size = 32
+font_data = SubResource( 8 )
+
+[node name="settings" type="CanvasLayer"]
+layer = 100
+script = ExtResource( 1 )
+
+[node name="backgroundPic" type="TextureRect" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="backgroundColor" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_top = -1.12244
+margin_right = 1.0
+margin_bottom = -1.12244
+color = Color( 1, 1, 1, 0.921569 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="autoBox" type="HBoxContainer" parent="."]
+margin_left = 131.0
+margin_top = 106.0
+margin_right = 418.0
+margin_bottom = 146.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="autoLabel" type="Label" parent="autoBox"]
+margin_top = 1.0
+margin_right = 180.0
+margin_bottom = 38.0
+rect_min_size = Vector2( 180, 35 )
+custom_fonts/font = SubResource( 10 )
+custom_colors/font_color = Color( 0.203922, 0.211765, 0.666667, 1 )
+text = "Auto Speed:  "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="autoSpeed" type="OptionButton" parent="autoBox"]
+margin_left = 184.0
+margin_right = 287.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 100, 40 )
+theme = SubResource( 12 )
+custom_fonts/font = SubResource( 13 )
+custom_colors/font_color = Color( 0.203922, 0.211765, 0.666667, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+toggle_mode = false
+text = "Normal"
+flat = true
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="musicBox" type="HBoxContainer" parent="."]
+margin_left = 134.579
+margin_top = 353.524
+margin_right = 634.579
+margin_bottom = 438.524
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="musicLabel" type="Label" parent="musicBox"]
+margin_top = 24.0
+margin_right = 188.0
+margin_bottom = 61.0
+custom_fonts/font = SubResource( 10 )
+custom_colors/font_color = Color( 0.203922, 0.211765, 0.666667, 1 )
+text = "Music            "
+
+[node name="musicSettings" type="VBoxContainer" parent="musicBox"]
+margin_left = 192.0
+margin_right = 500.0
+margin_bottom = 85.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="musicVolume" type="Label" parent="musicBox/musicSettings"]
+margin_right = 308.0
+margin_bottom = 31.0
+custom_fonts/font = SubResource( 14 )
+custom_colors/font_color = Color( 0.109804, 0.117647, 0.517647, 1 )
+text = "50"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="volumeSlider" type="HSlider" parent="musicBox/musicSettings"]
+margin_top = 35.0
+margin_right = 308.0
+margin_bottom = 51.0
+min_value = -50.0
+max_value = 50.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="voiceBox" type="HBoxContainer" parent="."]
+margin_left = 133.519
+margin_top = 523.038
+margin_right = 633.519
+margin_bottom = 608.038
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="voiceLabel" type="Label" parent="voiceBox"]
+margin_top = 24.0
+margin_right = 185.0
+margin_bottom = 61.0
+custom_fonts/font = SubResource( 10 )
+custom_colors/font_color = Color( 0.203922, 0.211765, 0.666667, 1 )
+text = "Voice            "
+
+[node name="voiceSettings" type="VBoxContainer" parent="voiceBox"]
+margin_left = 189.0
+margin_right = 500.0
+margin_bottom = 85.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="voiceVolume" type="Label" parent="voiceBox/voiceSettings"]
+margin_right = 311.0
+margin_bottom = 31.0
+custom_fonts/font = SubResource( 14 )
+custom_colors/font_color = Color( 0.109804, 0.117647, 0.517647, 1 )
+text = "50"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="voiceSlider" type="HSlider" parent="voiceBox/voiceSettings"]
+margin_top = 35.0
+margin_right = 311.0
+margin_bottom = 51.0
+min_value = -50.0
+max_value = 50.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="effectBox" type="HBoxContainer" parent="."]
+margin_left = 135.0
+margin_top = 440.0
+margin_right = 635.0
+margin_bottom = 525.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="effectLabel" type="Label" parent="effectBox"]
+margin_top = 24.0
+margin_right = 187.0
+margin_bottom = 61.0
+custom_fonts/font = SubResource( 10 )
+custom_colors/font_color = Color( 0.203922, 0.211765, 0.666667, 1 )
+text = "Sound Effect  "
+
+[node name="effectSettings" type="VBoxContainer" parent="effectBox"]
+margin_left = 191.0
+margin_right = 500.0
+margin_bottom = 85.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="effectVolume" type="Label" parent="effectBox/effectSettings"]
+margin_right = 309.0
+margin_bottom = 31.0
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color = Color( 0.109804, 0.117647, 0.517647, 1 )
+text = "50"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="effectVolumeSlider" type="HSlider" parent="effectBox/effectSettings"]
+margin_top = 35.0
+margin_right = 309.0
+margin_bottom = 51.0
+min_value = -50.0
+max_value = 50.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackButton" type="Button" parent="."]
+margin_left = 63.1066
+margin_top = 628.935
+margin_right = 154.107
+margin_bottom = 679.935
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 0.203922, 0.211765, 0.666667, 1 )
+custom_colors/font_color_hover = Color( 0.0352941, 0.960784, 0.811765, 1 )
+text = "Back"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="item_selected" from="autoBox/autoSpeed" to="." method="_on_autoSpeed_item_selected"]
+[connection signal="value_changed" from="musicBox/musicSettings/volumeSlider" to="." method="_on_volumeSlider_value_changed"]
+[connection signal="value_changed" from="voiceBox/voiceSettings/voiceSlider" to="." method="_on_voiceSlider_value_changed"]
+[connection signal="value_changed" from="effectBox/effectSettings/effectVolumeSlider" to="." method="_on_effectVolumeSlider_value_changed"]
+[connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]

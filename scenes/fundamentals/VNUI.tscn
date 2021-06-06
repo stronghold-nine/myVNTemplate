@@ -1,0 +1,82 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://scenes/fundamentals/details/dialogBox.tscn" type="PackedScene" id=1]
+[ext_resource path="res://fonts/EBGaramond-Bold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://fonts/EBGaramond-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://fonts/EBGaramond-Italic.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://scenes/fundamentals/quickMenuLayer.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/fundamentals/details/nvlBox.tscn" type="PackedScene" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 26
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 24
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 24
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 24
+font_data = ExtResource( 3 )
+
+[node name="VNUI" type="CanvasLayer"]
+layer = 2
+
+[node name="textBox" type="ColorRect" parent="."]
+margin_left = 242.003
+margin_top = 550.976
+margin_right = 1042.0
+margin_bottom = 680.976
+rect_min_size = Vector2( 800, 130 )
+color = Color( 1, 1, 1, 0.627451 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="nameBox" type="ColorRect" parent="."]
+margin_left = 240.881
+margin_top = 500.976
+margin_right = 390.881
+margin_bottom = 540.976
+rect_min_size = Vector2( 150, 40 )
+color = Color( 1, 1, 1, 0.627451 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="choiceContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.25
+anchor_right = 0.269
+margin_right = -24.32
+rect_min_size = Vector2( 600, 600 )
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="speaker" type="RichTextLabel" parent="."]
+margin_left = 250.881
+margin_top = 500.976
+margin_right = 380.881
+margin_bottom = 540.976
+custom_fonts/normal_font = SubResource( 1 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="dialog" parent="." instance=ExtResource( 1 )]
+custom_fonts/italics_font = SubResource( 2 )
+custom_fonts/bold_font = SubResource( 3 )
+custom_fonts/normal_font = SubResource( 4 )
+
+[node name="nvlBox" parent="." instance=ExtResource( 6 )]
+
+[node name="quickMenu" parent="." instance=ExtResource( 5 )]
+z_as_relative = false

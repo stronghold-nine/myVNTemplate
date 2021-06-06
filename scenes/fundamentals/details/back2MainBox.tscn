@@ -1,0 +1,72 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://fonts/ArchitectsDaughter.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://scenes/fundamentals/details/back2MainBox.gd" type="Script" id=2]
+[ext_resource path="res://gui/default_notification_box.png" type="Texture" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 26
+font_data = ExtResource( 1 )
+
+[node name="back2MainBox" type="TextureRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -200.0
+margin_top = -100.0
+margin_right = 200.0
+margin_bottom = 100.0
+texture = ExtResource( 3 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="notifText" type="RichTextLabel" parent="."]
+margin_left = 45.0
+margin_top = 20.0
+margin_right = 360.0
+margin_bottom = 120.0
+custom_fonts/normal_font = SubResource( 1 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+bbcode_text = "Do you want to go back to main menu?"
+text = "Do you want to go back to main menu?"
+scroll_active = false
+
+[node name="noButton" type="Button" parent="."]
+margin_left = 249.183
+margin_top = 125.536
+margin_right = 302.183
+margin_bottom = 168.536
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.101961, 0.568627, 0.694118, 1 )
+text = "No"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="yesButton" type="Button" parent="."]
+margin_left = 87.7805
+margin_top = 126.48
+margin_right = 140.781
+margin_bottom = 169.48
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0.101961, 0.568627, 0.694118, 1 )
+text = "Yes"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="gui_input" from="." to="." method="_on_back2MainBox_gui_input"]
+[connection signal="pressed" from="noButton" to="." method="_on_noButton_pressed"]
+[connection signal="pressed" from="yesButton" to="." method="_on_yesButton_pressed"]

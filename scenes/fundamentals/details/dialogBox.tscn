@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/fundamentals/dialog.gd" type="Script" id=1]
+[ext_resource path="res://fonts/EBGregular.tres" type="DynamicFont" id=2]
+
+[node name="dialog" type="RichTextLabel"]
+margin_left = 252.003
+margin_top = 560.976
+margin_right = 1032.0
+margin_bottom = 670.976
+rect_min_size = Vector2( 780, 110 )
+custom_fonts/normal_font = ExtResource( 2 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+visible_characters = 0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="autoTimer" type="Timer" parent="."]
+wait_time = 0.05
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="autoTimer" to="." method="_on_autoTimer_timeout"]
