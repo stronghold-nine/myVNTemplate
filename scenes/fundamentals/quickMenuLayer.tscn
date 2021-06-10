@@ -4,17 +4,17 @@
 [ext_resource path="res://scenes/fundamentals/quickMenuLayer.gd" type="Script" id=2]
 
 [sub_resource type="DynamicFont" id=1]
-size = 24
+size = 28
 font_data = ExtResource( 1 )
 
 [node name="quickMenu" type="Node2D"]
 script = ExtResource( 2 )
 
 [node name="autoButton" type="Button" parent="."]
-margin_left = 365.138
-margin_top = 678.062
-margin_right = 428.138
-margin_bottom = 718.062
+margin_left = 720.0
+margin_top = 1020.0
+margin_right = 763.0
+margin_bottom = 1060.0
 focus_mode = 0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
@@ -26,10 +26,10 @@ __meta__ = {
 }
 
 [node name="skipButton" type="Button" parent="."]
-margin_left = 296.966
-margin_top = 678.062
-margin_right = 359.966
-margin_bottom = 718.062
+margin_left = 650.0
+margin_top = 1020.0
+margin_right = 713.0
+margin_bottom = 1060.0
 focus_mode = 0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
@@ -41,10 +41,10 @@ __meta__ = {
 }
 
 [node name="SaveButton" type="Button" parent="."]
-margin_left = 497.811
-margin_top = 677.003
-margin_right = 561.811
-margin_bottom = 717.003
+margin_left = 800.0
+margin_top = 1020.82
+margin_right = 845.884
+margin_bottom = 1060.82
 focus_mode = 0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
@@ -56,10 +56,10 @@ __meta__ = {
 }
 
 [node name="loadButton" type="Button" parent="."]
-margin_left = 565.276
-margin_top = 677.003
-margin_right = 632.276
-margin_bottom = 717.003
+margin_left = 880.0
+margin_top = 1020.0
+margin_right = 935.893
+margin_bottom = 1060.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 shortcut_in_tooltip = false
@@ -70,10 +70,10 @@ __meta__ = {
 }
 
 [node name="historyButton" type="Button" parent="."]
-margin_left = 424.463
-margin_top = 677.752
-margin_right = 504.463
-margin_bottom = 717.752
+margin_left = 960.0
+margin_top = 1020.92
+margin_right = 764.576
+margin_bottom = 1060.92
 focus_mode = 0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
@@ -85,10 +85,10 @@ __meta__ = {
 }
 
 [node name="SettingButton" type="Button" parent="."]
-margin_left = 703.784
-margin_top = 676.959
-margin_right = 791.784
-margin_bottom = 716.959
+margin_left = 1030.0
+margin_top = 1020.0
+margin_right = 1039.57
+margin_bottom = 1061.14
 focus_mode = 0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
@@ -100,10 +100,10 @@ __meta__ = {
 }
 
 [node name="mainButton" type="Button" parent="."]
-margin_left = 637.673
-margin_top = 676.915
-margin_right = 700.673
-margin_bottom = 716.915
+margin_left = 1140.0
+margin_top = 1020.48
+margin_right = 1187.75
+margin_bottom = 1066.48
 focus_mode = 0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
@@ -116,10 +116,10 @@ __meta__ = {
 
 [node name="quitButton" type="Button" parent="."]
 visible = false
-margin_left = 726.442
-margin_top = 678.062
-margin_right = 781.442
-margin_bottom = 718.062
+margin_left = 900.0
+margin_top = 1020.0
+margin_right = 955.0
+margin_bottom = 1060.0
 focus_mode = 0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )

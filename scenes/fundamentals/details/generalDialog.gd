@@ -3,6 +3,7 @@ class_name generalDialog
 export(bool) var debug_mode
 # preloading
 var choiceBar = preload("res://scenes/fundamentals/choiceBar.tscn")
+var bottomLayer = preload("res://scenes/fundamentals/details/bottomLayerRect.tscn")
 
 var current_dialog = ""
 var current_index = 0
@@ -16,6 +17,7 @@ var waiting_cho = false
 var just_loaded = false
 const cps_dict = {'fast':50, 'slow':25, 'instant':0, 'slower':10}
 const arith_symbols = ['>','<', '=', '!', '+', '-', '*', '/', '%']
+onready var bg = $background
 onready var vnui = $VNUI
 onready var QM = vnui.get_node('quickMenu')
 onready var nvlBox = vnui.get_node('nvlBox')
@@ -44,8 +46,9 @@ func intepret_events(event):
 		{"fadein"}: fadein(event["fadein"])
 		{"fadeout"}: fadeout(event["fadeout"])
 		{"screen",..}: screen_effects(event)
-		{"bg"}: change_background(event)
+		{"bg",..}: change_background(event)
 		{"chara",..}: character_event(event)
+		{"weather"}: change_weather(event)
 		{"camera", ..}: 
 			if vn.skipping:
 				auto_load_next()
@@ -56,7 +59,7 @@ func intepret_events(event):
 		{'audio'}: play_sound(event['audio'])
 		{'dvar'}: set_dvar(event)
 		{'font', 'path'}: change_font(event)
-		{'sprite','loc','anim'}: anim_player(event)
+		{'sfx',..}: anim_player(event)
 		{'then',..}: then(event)
 		{'quick_menu'}: quick_menu(event)
 		{'choice',..}: generate_choices(event)
@@ -64,8 +67,8 @@ func intepret_events(event):
 		{'nvl'}: set_nvl(event)
 		{'GDscene'}: change_scene_to(event['GDscene'])
 		{'center'}:
-			centered = true
-			set_nvl({'nvl': true}, true)
+			self.centered = true
+			set_nvl({'nvl': true}, false)
 			if event.has('speed'):
 				say('', event['center'], event['speed'])
 			else:
@@ -106,7 +109,7 @@ func auto_load_next():
 func scene_end():
 	pass
 #------------------------ Related to Dialog Progression ------------------------
-func set_nvl(ev: Dictionary, no_auto = false):
+func set_nvl(ev: Dictionary, auto_forw = true):
 	if typeof(ev['nvl']) == 1:
 		self.nvl = ev['nvl']
 		if self.nvl:
@@ -114,11 +117,11 @@ func set_nvl(ev: Dictionary, no_auto = false):
 		else:
 			nvl_off()
 		
-		if not no_auto: auto_load_next()
+		if auto_forw: auto_load_next()
 		return
 	elif ev['nvl'] == 'clear':
 		nvlBox.clear()
-		if not no_auto: auto_load_next()
+		if auto_forw: auto_load_next()
 	else:
 		vn.error('nvl expects a boolean or the keyword clear.', ev)
 	
@@ -351,15 +354,34 @@ func voice(path:String) -> void:
 	else:
 		vn.error('p')
 #------------------- Related to Background and Godot Scene Change ----------------------
-func change_background(event : Dictionary) -> void:
-	var bg_path = vn.BG_DIR + event['bg']
-	if fileRelated.path_valid(bg_path):
-		get_node("background").texture = load(bg_path)
-		if !vn.inLoading:
-			game.playback_events['bg'] = event
-			auto_load_next()
+func change_background(ev : Dictionary) -> void:
+	var path = ev['bg']
+	if ev.size() == 1 or vn.skipping or vn.inLoading:
+		bg_change(path)
+	elif ev.has('fade'):
+		var t = float(ev['fade'])
+		fadeout(t/2, false)
+		bg_change(path)
+		fadein(t/2, false)
+	elif ev.has('pixellate'):
+		var t = float(ev['pixellate'])/2
+		screenEffects.pixel_out(t)
+		clear_boxes()
+		hide_boxes()
+		QM.visible = false
+		yield(get_tree().create_timer(t), 'timeout')
+		bg_change(path)
+		screenEffects.pixel_in(t)
+		yield(get_tree().create_timer(t), 'timeout')
+		show_boxes()
+		if not QM.hiding: QM.visible = true
+	
 	else:
-		vn.error("p")
+		vn.error("Unknown bg transition effect.", ev)
+	
+	if !vn.inLoading:
+		game.playback_events['bg'] = ev
+		auto_load_next()
 
 func change_scene_to(path : String):
 	stage.remove_chara('absolute_all')
@@ -434,7 +456,6 @@ func screen_effects(ev: Dictionary):
 	# here. If there is no parameters like shockwave, then directly call it.
 	match ef:
 		"tint": tint(ev)
-		"shockwave": screenEffects.shockWave()
 		_: vn.error('Unknown screen effect.' , ev)
 	
 	if !vn.inLoading:
@@ -443,23 +464,24 @@ func screen_effects(ev: Dictionary):
 func quick_menu(ev: Dictionary):
 	if ev['quick_menu']:
 		QM.visible = true
+		QM.hiding = false
 	else:
 		QM.visible = false
+		QM.hiding = true
 	auto_load_next()
 
-func fadein(time : float) -> void:
+func fadein(time : float, auto_forw = true) -> void:
 	clear_boxes()
-	hide_boxes()
+	show_boxes()
 	QM.visible = false
 	if not vn.skipping:
 		screenEffects.fadein(time)
 		yield(get_tree().create_timer(time), "timeout")
 	
 	QM.visible = true
-	show_boxes()
-	auto_load_next()
+	if auto_forw: auto_load_next()
 	
-func fadeout(time : float) -> void:
+func fadeout(time : float, auto_forw = true) -> void:
 	clear_boxes()
 	hide_boxes()
 	QM.visible = false
@@ -468,7 +490,7 @@ func fadeout(time : float) -> void:
 		yield(get_tree().create_timer(time), "timeout")
 	QM.visible = true
 	show_boxes()
-	auto_load_next()
+	if auto_forw: auto_load_next()
 
 func tint(ev : Dictionary) -> void:
 	
@@ -484,16 +506,18 @@ func tint(ev : Dictionary) -> void:
 
 # Sprite animations...
 func anim_player(ev : Dictionary) -> void:
-	var target_scene = load(ev['sprite']).instance()
+	var target_scene = load(ev['sfx']).instance()
 	add_child(target_scene)
-	target_scene.position = ev['loc']
-	var anim = target_scene.get_node('AnimationPlayer')
-	if anim.has_animation(ev['anim']):
-		anim.play(ev['anim'])
+	if ev.has('loc'): target_scene.position = ev['loc']
+	if ev.has('anim'):
+		var anim = target_scene.get_node('AnimationPlayer')
+		if anim.has_animation(ev['anim']):
+			anim.play(ev['anim'])
+			auto_load_next()
+		else:
+			vn.error('Animation not found.', ev)
+	else: # Animation is not specified, that means it will automatically play
 		auto_load_next()
-	else:
-		vn.error('Animation not found.', ev)
-	
 
 func camera_effect(event : Dictionary) -> void:
 	var ef_name = event['camera']
@@ -628,6 +652,18 @@ func character_move(uid:String, ev:Dictionary):
 		"should be supplied.", ev)
 
 
+#--------------------------------- Weather -------------------------------------
+func change_weather(ev:Dictionary):
+	var we = ev['weather']
+	screenEffects.show_weather(we) # If given weather doesn't exist, nothing will happen
+	if !vn.inLoading:
+		if we == "":
+			game.playback_events['weather'] = {}
+		else:
+			game.playback_events['weather'] = ev
+		auto_load_next()
+
+
 #--------------------------------- Utility -------------------------------------
 func conditional_branch(ev : Dictionary) -> void:
 	if check_condition(ev['condition']):
@@ -703,7 +739,10 @@ func on_choice_made(ev : Dictionary) -> void:
 		n.queue_free()
 	
 	waiting_cho = false
-	intepret_events(ev)
+	if ev.size() == 0:
+		auto_load_next()
+	else:
+		intepret_events(ev)
 
 func load_playback(play_back):
 	vn.inLoading = true
@@ -791,3 +830,9 @@ func trigger_accept():
 	if not waiting_cho:
 		emit_signal("player_accept")
 
+func bg_change(path: String):
+	var bg_path = vn.BG_DIR + path
+	if fileRelated.path_valid(bg_path):
+		bg.texture = load(bg_path)
+	else:
+		vn.error("p")

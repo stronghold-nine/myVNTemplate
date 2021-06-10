@@ -85,13 +85,13 @@ func make_save(save_path):
 
 
 func set_description(text):
-	get_node("Button/HBoxContainer/VBoxContainer/saveInfo").bbcode_text = text
+	get_node("Button/HBoxContainer/VBoxContainer/saveInfo").bbcode_text = "[center]"+ text +"[/center]"
 
 func set_datetime(dt):
-	get_node("Button/HBoxContainer/VBoxContainer/saveTime").bbcode_text = dt
+	get_node("Button/HBoxContainer/VBoxContainer/saveTime").bbcode_text = "[center]"+ dt +"[/center]"
 	
 func get_datetime():
-	return get_node("Button/HBoxContainer/VBoxContainer/saveTime").bbcode_text
+	return get_node("Button/HBoxContainer/VBoxContainer/saveTime").text
 
 func load_thumbnail():
 	var thumbnail = get_node("Button/HBoxContainer/saveThumbnail")

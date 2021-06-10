@@ -3,25 +3,25 @@
 [ext_resource path="res://scenes/fundamentals/details/settings.gd" type="Script" id=1]
 [ext_resource path="res://fonts/ArchitectsDaughter.ttf" type="DynamicFontData" id=2]
 
-[sub_resource type="DynamicFont" id=10]
-size = 26
+[sub_resource type="DynamicFont" id=1]
+size = 40
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFontData" id=2]
 font_path = "res://fonts/ArchitectsDaughter.ttf"
 
-[sub_resource type="DynamicFont" id=11]
+[sub_resource type="DynamicFont" id=3]
 font_data = SubResource( 2 )
 
-[sub_resource type="Theme" id=12]
-default_font = SubResource( 11 )
+[sub_resource type="Theme" id=4]
+default_font = SubResource( 3 )
 
-[sub_resource type="DynamicFont" id=13]
-size = 23
+[sub_resource type="DynamicFont" id=5]
+size = 40
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=14]
-size = 22
+[sub_resource type="DynamicFont" id=6]
+size = 25
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=7]
@@ -32,7 +32,7 @@ font_data = ExtResource( 2 )
 font_path = "res://fonts/ArchitectsDaughter.ttf"
 
 [sub_resource type="DynamicFont" id=9]
-size = 32
+size = 40
 font_data = SubResource( 8 )
 
 [node name="settings" type="CanvasLayer"]
@@ -62,18 +62,18 @@ __meta__ = {
 [node name="autoBox" type="HBoxContainer" parent="."]
 margin_left = 131.0
 margin_top = 106.0
-margin_right = 418.0
-margin_bottom = 146.0
+margin_right = 431.0
+margin_bottom = 166.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="autoLabel" type="Label" parent="autoBox"]
-margin_top = 1.0
-margin_right = 180.0
-margin_bottom = 38.0
+margin_top = 3.0
+margin_right = 253.0
+margin_bottom = 60.0
 rect_min_size = Vector2( 180, 35 )
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.203922, 0.211765, 0.666667, 1 )
 text = "Auto Speed:  "
 __meta__ = {
@@ -81,12 +81,12 @@ __meta__ = {
 }
 
 [node name="autoSpeed" type="OptionButton" parent="autoBox"]
-margin_left = 184.0
-margin_right = 287.0
-margin_bottom = 40.0
+margin_left = 257.0
+margin_right = 413.0
+margin_bottom = 63.0
 rect_min_size = Vector2( 100, 40 )
-theme = SubResource( 12 )
-custom_fonts/font = SubResource( 13 )
+theme = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0.203922, 0.211765, 0.666667, 1 )
 custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
 toggle_mode = false
@@ -107,16 +107,16 @@ __meta__ = {
 }
 
 [node name="musicLabel" type="Label" parent="musicBox"]
-margin_top = 24.0
-margin_right = 188.0
-margin_bottom = 61.0
-custom_fonts/font = SubResource( 10 )
+margin_top = 14.0
+margin_right = 296.0
+margin_bottom = 71.0
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.203922, 0.211765, 0.666667, 1 )
 text = "Music            "
 
 [node name="musicSettings" type="VBoxContainer" parent="musicBox"]
-margin_left = 192.0
-margin_right = 500.0
+margin_left = 300.0
+margin_right = 600.0
 margin_bottom = 85.0
 size_flags_horizontal = 3
 __meta__ = {
@@ -124,9 +124,9 @@ __meta__ = {
 }
 
 [node name="musicVolume" type="Label" parent="musicBox/musicSettings"]
-margin_right = 308.0
-margin_bottom = 31.0
-custom_fonts/font = SubResource( 14 )
+margin_right = 300.0
+margin_bottom = 36.0
+custom_fonts/font = SubResource( 6 )
 custom_colors/font_color = Color( 0.109804, 0.117647, 0.517647, 1 )
 text = "50"
 align = 1
@@ -136,9 +136,9 @@ __meta__ = {
 }
 
 [node name="volumeSlider" type="HSlider" parent="musicBox/musicSettings"]
-margin_top = 35.0
-margin_right = 308.0
-margin_bottom = 51.0
+margin_top = 40.0
+margin_right = 300.0
+margin_bottom = 56.0
 min_value = -50.0
 max_value = 50.0
 __meta__ = {
@@ -155,16 +155,16 @@ __meta__ = {
 }
 
 [node name="voiceLabel" type="Label" parent="voiceBox"]
-margin_top = 24.0
-margin_right = 185.0
-margin_bottom = 61.0
-custom_fonts/font = SubResource( 10 )
+margin_top = 14.0
+margin_right = 293.0
+margin_bottom = 71.0
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.203922, 0.211765, 0.666667, 1 )
 text = "Voice            "
 
 [node name="voiceSettings" type="VBoxContainer" parent="voiceBox"]
-margin_left = 189.0
-margin_right = 500.0
+margin_left = 297.0
+margin_right = 597.0
 margin_bottom = 85.0
 size_flags_horizontal = 3
 __meta__ = {
@@ -172,9 +172,9 @@ __meta__ = {
 }
 
 [node name="voiceVolume" type="Label" parent="voiceBox/voiceSettings"]
-margin_right = 311.0
-margin_bottom = 31.0
-custom_fonts/font = SubResource( 14 )
+margin_right = 300.0
+margin_bottom = 36.0
+custom_fonts/font = SubResource( 6 )
 custom_colors/font_color = Color( 0.109804, 0.117647, 0.517647, 1 )
 text = "50"
 align = 1
@@ -184,9 +184,9 @@ __meta__ = {
 }
 
 [node name="voiceSlider" type="HSlider" parent="voiceBox/voiceSettings"]
-margin_top = 35.0
-margin_right = 311.0
-margin_bottom = 51.0
+margin_top = 40.0
+margin_right = 300.0
+margin_bottom = 56.0
 min_value = -50.0
 max_value = 50.0
 __meta__ = {
@@ -203,16 +203,16 @@ __meta__ = {
 }
 
 [node name="effectLabel" type="Label" parent="effectBox"]
-margin_top = 24.0
-margin_right = 187.0
-margin_bottom = 61.0
-custom_fonts/font = SubResource( 10 )
+margin_top = 14.0
+margin_right = 293.0
+margin_bottom = 71.0
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.203922, 0.211765, 0.666667, 1 )
 text = "Sound Effect  "
 
 [node name="effectSettings" type="VBoxContainer" parent="effectBox"]
-margin_left = 191.0
-margin_right = 500.0
+margin_left = 297.0
+margin_right = 597.0
 margin_bottom = 85.0
 size_flags_horizontal = 3
 __meta__ = {
@@ -220,7 +220,7 @@ __meta__ = {
 }
 
 [node name="effectVolume" type="Label" parent="effectBox/effectSettings"]
-margin_right = 309.0
+margin_right = 300.0
 margin_bottom = 31.0
 custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0.109804, 0.117647, 0.517647, 1 )
@@ -233,7 +233,7 @@ __meta__ = {
 
 [node name="effectVolumeSlider" type="HSlider" parent="effectBox/effectSettings"]
 margin_top = 35.0
-margin_right = 309.0
+margin_right = 300.0
 margin_bottom = 51.0
 min_value = -50.0
 max_value = 50.0
@@ -242,10 +242,10 @@ __meta__ = {
 }
 
 [node name="BackButton" type="Button" parent="."]
-margin_left = 63.1066
-margin_top = 628.935
-margin_right = 154.107
-margin_bottom = 679.935
+margin_left = 73.1974
+margin_top = 946.794
+margin_right = 164.198
+margin_bottom = 997.794
 custom_fonts/font = SubResource( 9 )
 custom_colors/font_color = Color( 0.203922, 0.211765, 0.666667, 1 )
 custom_colors/font_color_hover = Color( 0.0352941, 0.960784, 0.811765, 1 )

@@ -41,17 +41,17 @@ config/icon="res://icon.png"
 
 game="*res://scenes/fundamentals/details/gameProgress.gd"
 vn="*res://scenes/fundamentals/details/globalSettings.gd"
-screenEffects="*res://scenes/fundamentals/details/ScreenEffects.tscn"
+chara="*res://scenes/fundamentals/details/gameCharacters.gd"
+stage="*res://scenes/fundamentals/charaStage.tscn"
 fileRelated="*res://scenes/fundamentals/details/fileRelated.gd"
 notif="*res://scenes/fundamentals/notification.tscn"
-chara="*res://scenes/fundamentals/details/gameCharacters.gd"
 music="*res://scenes/fundamentals/musicController.tscn"
-stage="*res://scenes/fundamentals/charaStage.tscn"
+screenEffects="*res://scenes/fundamentals/details/ScreenEffects.tscn"
 
 [display]
 
-window/size/width=1280
-window/size/height=720
+window/size/width=1920
+window/size/height=1080
 window/stretch/mode="2d"
 
 [input]

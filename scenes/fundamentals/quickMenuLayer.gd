@@ -5,19 +5,8 @@ var historyScene = preload("res://scenes/fundamentals/historyScreen.tscn")
 var saveScene = preload("res://scenes/fundamentals/saveScreen.tscn")
 var loadScene = preload("res://scenes/fundamentals/loadScreen.tscn")
 
+var hiding = false
 
-func show():
-	yield(get_tree().create_timer(0.1), "timeout")
-	for n in get_children():
-		if n is Button:
-			n.visible = true
-			n.disabled = false
-	
-func hide():
-	for n in get_children():
-		if n is Button:
-			n.visible = false
-			n.disabled = true
 
 func _notification(what):
 	if what == MainLoop.NOTIFICATION_WM_QUIT_REQUEST:

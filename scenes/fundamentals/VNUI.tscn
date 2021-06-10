@@ -27,21 +27,21 @@ font_data = ExtResource( 3 )
 layer = 2
 
 [node name="textBox" type="ColorRect" parent="."]
-margin_left = 242.003
-margin_top = 550.976
-margin_right = 1042.0
-margin_bottom = 680.976
-rect_min_size = Vector2( 800, 130 )
+margin_left = 510.0
+margin_top = 850.0
+margin_right = 1410.0
+margin_bottom = 1010.0
+rect_min_size = Vector2( 900, 160 )
 color = Color( 1, 1, 1, 0.627451 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="nameBox" type="ColorRect" parent="."]
-margin_left = 240.881
-margin_top = 500.976
-margin_right = 390.881
-margin_bottom = 540.976
+margin_left = 510.0
+margin_top = 800.0
+margin_right = 660.0
+margin_bottom = 840.0
 rect_min_size = Vector2( 150, 40 )
 color = Color( 1, 1, 1, 0.627451 )
 __meta__ = {
@@ -51,18 +51,21 @@ __meta__ = {
 [node name="choiceContainer" type="VBoxContainer" parent="."]
 anchor_left = 0.25
 anchor_right = 0.269
-margin_right = -24.32
-rect_min_size = Vector2( 600, 600 )
+margin_left = -70.0
+margin_top = 30.0
+margin_right = 993.52
+margin_bottom = 830.0
+rect_min_size = Vector2( 1100, 800 )
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="speaker" type="RichTextLabel" parent="."]
-margin_left = 250.881
-margin_top = 500.976
-margin_right = 380.881
-margin_bottom = 540.976
+margin_left = 517.0
+margin_top = 799.0
+margin_right = 651.0
+margin_bottom = 838.0
 custom_fonts/normal_font = SubResource( 1 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
@@ -79,4 +82,3 @@ custom_fonts/normal_font = SubResource( 4 )
 [node name="nvlBox" parent="." instance=ExtResource( 6 )]
 
 [node name="quickMenu" parent="." instance=ExtResource( 5 )]
-z_as_relative = false

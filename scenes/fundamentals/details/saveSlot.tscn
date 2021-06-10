@@ -14,25 +14,25 @@ size = 20
 font_data = ExtResource( 1 )
 
 [node name="saveSlot" type="Control"]
-margin_right = 950.0
-margin_bottom = 110.0
-rect_min_size = Vector2( 0, 110 )
+margin_right = 1600.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 1600, 120 )
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Button" type="TextureButton" parent="."]
-margin_right = 950.0
-margin_bottom = 110.0
+margin_right = 1600.0
+margin_bottom = 120.0
 texture_hover = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Button"]
-margin_right = 950.0
-margin_bottom = 110.0
+margin_right = 1600.0
+margin_bottom = 120.0
 size_flags_horizontal = 2
 size_flags_vertical = 3
 __meta__ = {
@@ -41,15 +41,15 @@ __meta__ = {
 
 [node name="emptySpace" type="Control" parent="Button/HBoxContainer"]
 margin_right = 15.0
-margin_bottom = 110.0
+margin_bottom = 120.0
 rect_min_size = Vector2( 15, 110 )
 mouse_filter = 2
 
 [node name="saveThumbnail" type="TextureRect" parent="Button/HBoxContainer"]
 margin_left = 19.0
-margin_top = 5.0
+margin_top = 10.0
 margin_right = 194.0
-margin_bottom = 105.0
+margin_bottom = 110.0
 rect_min_size = Vector2( 175, 100 )
 mouse_filter = 2
 size_flags_vertical = 4
@@ -59,14 +59,14 @@ expand = true
 [node name="emptySpace2" type="Control" parent="Button/HBoxContainer"]
 margin_left = 198.0
 margin_right = 248.0
-margin_bottom = 110.0
+margin_bottom = 120.0
 rect_min_size = Vector2( 50, 110 )
 mouse_filter = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Button/HBoxContainer"]
 margin_left = 252.0
-margin_right = 950.0
-margin_bottom = 110.0
+margin_right = 1600.0
+margin_bottom = 120.0
 mouse_filter = 2
 size_flags_horizontal = 3
 custom_constants/separation = 10
@@ -75,8 +75,8 @@ __meta__ = {
 }
 
 [node name="saveInfo" type="RichTextLabel" parent="Button/HBoxContainer/VBoxContainer"]
-margin_right = 698.0
-margin_bottom = 50.0
+margin_right = 1348.0
+margin_bottom = 55.0
 mouse_filter = 2
 size_flags_vertical = 3
 custom_fonts/normal_font = SubResource( 1 )
@@ -85,15 +85,16 @@ bbcode_enabled = true
 scroll_active = false
 
 [node name="saveTime" type="RichTextLabel" parent="Button/HBoxContainer/VBoxContainer"]
-margin_top = 60.0
-margin_right = 698.0
-margin_bottom = 110.0
+margin_top = 65.0
+margin_right = 1348.0
+margin_bottom = 120.0
 mouse_filter = 2
 size_flags_vertical = 3
 custom_fonts/normal_font = SubResource( 2 )
 custom_colors/default_color = Color( 0.745098, 0.180392, 0.180392, 1 )
 bbcode_enabled = true
-bbcode_text = "??/??/???? ??:??:??"
+bbcode_text = "[center]??/??/???? ??:??:??[/center]"
 text = "??/??/???? ??:??:??"
+scroll_active = false
 
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

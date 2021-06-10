@@ -15,12 +15,8 @@ func _ready():
 	# format: (display_name, unique_id, Color)
 	
 	# Your characters...
-	var female = character.new("A", "female", Color(0,0,0))
-	female.in_all = true
-	female.apply_highlight = true
-	var test2 = character.new("B", "test2", Color(0,255,0))
-	test2.in_all = true
-	test2.apply_highlight = true
+	var _female = character.new("A", "female", Color(0,0,0))
+	var _t = character.new('B', 'test2', Color(0,0,1))
 
 #----------------------------------------------------------------------------
 

@@ -44,13 +44,15 @@ func autofill_expression_mapping():
 	#print(expression_mapping)
 
 func change_expression(expression : String) -> bool:
+	if expression == "":
+		expression = 'default'
+	
 	if expression_mapping.has(expression):
 		self.texture = load(vn.CHARA_DIR + expression_mapping[expression])
 		current_expression = expression
 		return true
 	else:
-		if unique_id != '':
-			vn.error(expression + ' not found for character with uid ' + unique_id)
+		vn.error(expression + ' not found for character with uid ' + unique_id)
 		return false
 #--------------------------------------------------------------------------------
 func hide():

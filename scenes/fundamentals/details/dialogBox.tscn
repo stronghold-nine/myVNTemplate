@@ -1,14 +1,26 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/fundamentals/dialog.gd" type="Script" id=1]
 [ext_resource path="res://fonts/EBGregular.tres" type="DynamicFont" id=2]
+[ext_resource path="res://fonts/EBGaramond-Bold.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://fonts/EBGaramond-Italic.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=2]
+size = 26
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 26
+font_data = ExtResource( 3 )
 
 [node name="dialog" type="RichTextLabel"]
-margin_left = 252.003
-margin_top = 560.976
-margin_right = 1032.0
-margin_bottom = 670.976
-rect_min_size = Vector2( 780, 110 )
+margin_left = 526.0
+margin_top = 862.0
+margin_right = 1380.0
+margin_bottom = 1000.0
+rect_min_size = Vector2( 854, 138 )
+custom_fonts/italics_font = SubResource( 2 )
+custom_fonts/bold_font = SubResource( 1 )
 custom_fonts/normal_font = ExtResource( 2 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true

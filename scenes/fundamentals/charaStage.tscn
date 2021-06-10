@@ -3,6 +3,7 @@
 [ext_resource path="res://scenes/fundamentals/charaStage.gd" type="Script" id=1]
 
 [node name="stage" type="CanvasLayer"]
+layer = 0
 script = ExtResource( 1 )
 __meta__ = {
 "_editor_description_": "An empty node to hold VN characters that are currently on stage. (On stage means they're visible currently. )"

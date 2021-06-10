@@ -39,7 +39,7 @@ var nvl_text = ''
 # Current characters on stage together w/ their expressions 
 
 
-var playback_events = {'bg':{}, 'bgm':{}, 'screen':{}, 'charas':[], 'nvl': ''}
+var playback_events = {'bg':{}, 'bgm':{}, 'screen':{}, 'charas':[], 'weather': {}, 'nvl': ''}
 # specific to one scene in godot
 
 func get_latest_onstage():

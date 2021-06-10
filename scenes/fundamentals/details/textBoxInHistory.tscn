@@ -6,33 +6,33 @@
 [ext_resource path="res://fonts/EBGaramond-Italic.ttf" type="DynamicFontData" id=5]
 
 [sub_resource type="DynamicFont" id=1]
-size = 22
+size = 26
 font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 22
+size = 26
 font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=3]
-size = 22
+size = 26
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=4]
-size = 22
+size = 26
 font_data = ExtResource( 4 )
 
 [node name="textBoxInHistory" type="Control"]
-margin_right = 950.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 950, 100 )
+margin_right = 1600.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 1600, 120 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-margin_right = 950.0
-margin_bottom = 100.0
+margin_right = 1600.0
+margin_bottom = 120.0
 custom_constants/separation = 10
 __meta__ = {
 "_edit_use_anchors_": false
@@ -49,8 +49,8 @@ text = "Sample Name:"
 
 [node name="text" type="RichTextLabel" parent="HBoxContainer"]
 margin_left = 160.0
-margin_right = 950.0
-margin_bottom = 100.0
+margin_right = 1600.0
+margin_bottom = 120.0
 rect_min_size = Vector2( 740, 90 )
 size_flags_horizontal = 3
 custom_fonts/italics_font = SubResource( 2 )

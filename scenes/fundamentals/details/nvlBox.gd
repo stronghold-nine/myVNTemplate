@@ -4,10 +4,10 @@ onready var timer = $Timer
 onready var autoTimer = $autoTimer
 
 # center = nvl in disguise
-const default_size = Vector2(900,600)
-const default_pos = Vector2(190,25)
-const center_pos = Vector2(130,300)
-const center_size = Vector2(1000,100)
+const default_size = Vector2(1100,800)
+const default_pos = Vector2(410,50)
+const center_size = Vector2(1100,300)
+const center_pos = Vector2(410,400)
 
 var skipCounter = 0
 var autoCounter = 0
